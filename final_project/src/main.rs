@@ -27,7 +27,7 @@ fn main() {
     distance::how_many_clicks(&String::from(e), &String::from(d), &my_graph);
     
     // uncomment next line to print distances from all nodes to all nodes. should take a few minutes. Run "cargo run > output.txt" to see the full output in a separate file.
-    println!("{:?}", distance::all_distances(&my_graph)); 
+    //println!("{:?}", distance::all_distances(&my_graph)); 
 }
 
 //test to check graph was created with correct n and adjacency lists
