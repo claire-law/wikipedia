@@ -10,21 +10,21 @@ pub fn compute_distances(node: &String, graph: &DirectedGraph) -> HashMap<String
         println!("The page {:?} does not exist in the data.", node);
         return distance;
     } else {   
-        distance.insert(node.to_string(), Some(0)); // distance to itself
+        distance.insert(node.to_string(), Some(0)); 
 
         let mut queue: VecDeque<String> = VecDeque::new();
         queue.push_back(node.to_string());
 
-        while let Some(v) = queue.pop_front() { //pops first element in queue. loop runs if Some() returned
+        while let Some(v) = queue.pop_front() { 
             if let Some(neighbors) = graph.adj_lists.get(&v) {
-                for u in neighbors.iter() { // iterate through neighbors of v
-                    if let None = distance.get(u) { //  if distance[*u] matches None...
-                        let d = distance.get(&v).unwrap().clone().unwrap() + 1; // ...assign distance = distance[v] + 1...
-                        queue.push_back(u.clone());// ... add neighbor u to queue..
+                for u in neighbors.iter() { 
+                    if let None = distance.get(u) { 
+                        let d = distance.get(&v).unwrap().clone().unwrap() + 1; 
+                        queue.push_back(u.clone());
                         distance.insert(u.clone(), Some(d)); 
                     }
                 }
-            } else { // notifies you when cases where the page links to another page that is not in the dataset.
+            } else { // uncomment to be notified when cases where the page links to another page that is not in the dataset.
                 //println!("Dataset does not have the Wikipedia page for: {:?}", v);
             }
         }
@@ -32,7 +32,6 @@ pub fn compute_distances(node: &String, graph: &DirectedGraph) -> HashMap<String
         // assigns None for nodes not connected to given node
         for i in graph.adj_lists.keys() {
             if let None = distance.get(i) {
-                //println!("{:?} is not connected to {:?}", i, node);
                 distance.insert(i.clone(), None);
             }
         }
