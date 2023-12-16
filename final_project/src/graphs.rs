@@ -19,5 +19,18 @@ impl DirectedGraph {
         g.n = g.adj_lists.keys().len();  
         g                                    
     }
+
+    pub fn create_reverse(edges:&Vec<(String, String)>) -> DirectedGraph {
+        let mut g = DirectedGraph{n:0, adj_lists:HashMap::<String,Vec<String>>::new()};
+        for (k,v) in edges.iter() {
+            if let Some(x) = g.adj_lists.get_mut(k) { 
+                x.push(k.to_string());
+            } else {
+                g.adj_lists.insert(v.to_string(), vec![k.to_string()]);
+            }
+        }        
+        g.n = g.adj_lists.keys().len();  
+        g                                    
+    }
 }
 
