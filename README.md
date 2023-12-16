@@ -3,7 +3,7 @@ Write-up for DS210 Final Project by Claire Law
 
 
 DATASET: Navigation paths between Wikipedia pages, collected through the game "Wikispeedia," in which users are asked to navigate from one Wikipedia article to another only by clicking on other Wikipedia pages that are hyperlinked. (Citation: Robert West, Joelle Pineau, and Doina Precup: Wikispeedia: An Online Game for Inferring Semantic Distances between Concepts. 21st International Joint Conference on Artificial Intelligence (IJCAI), 2009.)
-- Link to download dataset: https://snap.stanford.edu/data/wikispeedia.html. I downloaded the first link (the file that is 9.5 MB). Once you unzip the folder, you will see a file called "links.tsv", which is the dataset I used. 
+- I have included the part of the dataset I am using in my final_project folder, but if you want to download it yourself, it is here: https://snap.stanford.edu/data/wikispeedia.html. I downloaded the first link (the file that is 9.5 MB). Once you unzip the folder, you will see a file called "links.tsv", which is the dataset I used. 
 - It contains the list of all edges (hyperlinks) between the nodes (articles). In each record, the first item is the node/page that contains the hyperlink to the other node/page listed in the record.
 - Note: The article names are URL-encoded, so any unreadable text in the dataset is likely representing a page/node whose title contains non-English characters, such as any characters with accents.
 
